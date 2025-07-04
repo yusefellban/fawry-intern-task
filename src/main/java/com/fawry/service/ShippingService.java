@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShippingService {
+//    private final Logger logger = LoggerFactory.getLogger(ShippingService.class);
 
     public List<Shippable> getShippableItems(Customer customer) {
         List<Shippable> items = new ArrayList<>();
