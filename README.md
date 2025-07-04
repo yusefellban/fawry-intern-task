@@ -153,6 +153,39 @@ mvn test
 
 ---
 
+## 🐳 Docker & Docker Compose Integration
+
+To simplify deployment and environment consistency, this project includes Docker support.
+
+### ✅ What’s Included:
+
+- **Dockerfile** to containerize the Java application
+- **docker-compose.yml** to manage and run the app as a service
+- Support for building and running a **fat JAR** with all dependencies bundled
+- Logging is configured using `slf4j-simple`
+
+---
+
+### 🧾 Dockerfile
+
+```Dockerfile
+# Stage 1: Build the JAR with Maven
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package
+
+# Stage 2: Run the app using Eclipse Temurin JDK
+FROM eclipse-temurin:17-jdk-jammy
+WORKDIR /app
+COPY --from=build /app/target/*-jar-with-dependencies.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+##🧪 How to Build & Run
+- docker-compose up --build
+---
+
 ## 👨‍💻 Author
 
 **Yousef El-llban**  
