@@ -41,8 +41,6 @@ class CheckoutControllerTest {
         // Act
         controller.handleCheckout(customer);
 
-        // Note: no assert needed since the method handles exception with a print,
-        // but the test will pass as long as there's no crash.
     }
 
     @Test
@@ -60,6 +58,5 @@ class CheckoutControllerTest {
         // Act
         controller.handleCheckout(customer);
 
-        // Again, no assert needed. Just verifying no crash and proper handling.
     }
 }
